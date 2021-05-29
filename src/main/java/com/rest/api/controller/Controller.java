@@ -11,17 +11,12 @@ import java.sql.SQLException;
 @RequestMapping("/api")
 public class Controller {
 
-    private final Service service = new Service();
+    private Service service;
 
     public Controller() throws SQLException {
+         service = new Service();
     }
 
-
-    @GetMapping("/get")
-    public String getFirstNote() {
-        return "hello";
-    }
-    // localhost/api/add?name=MyNote&text=FirstText
     @PostMapping("/add")
     public String createNote(@RequestParam String name, @RequestParam String text) {
         service.createNote(name, text);

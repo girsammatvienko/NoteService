@@ -27,6 +27,7 @@ public class NoteRepository {
     public NoteRepository() throws SQLException {
         DriverManager.registerDriver(new JDBC());
         this.connection = DriverManager.getConnection(URL);
+        System.out.println("established");
     }
 
     public void addNote(Note note) {
